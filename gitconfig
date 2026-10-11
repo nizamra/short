@@ -4,21 +4,18 @@
 # ============================================================================
 
 [user]
-	email = nizam@bookly.cc
-	name = Nizam Jawabreh
+	email = nizam.jawabreh@gmail.com
+	name = Nizam Rateb Aljawabreh
 
 [alias]
 	# --- basics ---
 	c    = commit
 	co   = checkout
 	br   = branch
-	l    = log
-	l1   = log --oneline
 	s    = status
 	ad   = add .
 	d    = diff
 	r    = reset
-	lg   = log --oneline --graph --decorate
 
 	# --- sync ---
 	pl   = pull
@@ -26,13 +23,24 @@
 
 	# --- history ---
 	cp     = cherry-pick
-	pop    = reset HEAD^
 	copy = "! git format-patch eval `git log --oneline HEAD...release/4_5_0 | wc -l` HEAD"
-
-	ama    = commit --amend -a --no-verify --no-edit
-	mk     = "! git commit --amend -a --no-verify --no-edit && git push -f"
 	cls = "! git add .; git reset --hard"
-	squash = !f() { git reset --soft HEAD~$1 && git commit --amend --no-edit; }; f
+
+	# --- log
+	l    = log
+	l1   = log --oneline
+	lg   = log --oneline --graph --decorate --all
+	last = log -1 HEAD
+
+	# --- rewrite history (be careful on shared branches)
+	# ama:    fold all tracked changes into the last commit, keep its message
+	ama     = commit --amend -a --no-verify --no-edit
+	# mk:     ama + push (force-with-lease refuses if someone else pushed meanwhile)
+	mk      = "!git commit --amend -a --no-verify --no-edit && git push --force-with-lease"
+	# pop:    undo the last commit, keep its changes in the working tree
+	pop     = reset HEAD^
+	# squash: git squash N folds the last N commits into the commit before them
+	squash  = "!f() { git reset --soft HEAD~${1:-1} && git commit --amend --no-verify --no-edit; }; f"
 
 [core]
 	autocrlf = true
