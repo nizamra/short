@@ -2,6 +2,9 @@
 
 [![License: MIT](https://img.shields.io/badge/license-MIT-green)](LICENSE)
 [![Platform](https://img.shields.io/badge/platform-Linux%20%7C%20Windows-blue)](https://github.com/nizamra/short)
+![Shell](https://img.shields.io/badge/shell-bash%20%7C%20powershell-blue)
+![Platform](https://img.shields.io/badge/platform-Linux%20%7C%20WSL%20%7C%20Windows-lightgrey)
+![Maintained](https://img.shields.io/badge/maintained-yes-brightgreen)
 
 My personal collection of cross-platform shortcuts, aliases, and configurations for **Bash**, **Git**, **PowerShell**, **Kubernetes**, **Terraform**, and **Ansible**. Designed for fast deployment on any new workstation or server without disrupting existing configurations.
 

@@ -1,12 +1,7 @@
-#!/usr/bin/env bash
-set -e
+# ============================================================================
+#  nizamra/short — personal Bash shortcuts
+# ============================================================================
 
-MARKER_START="# >>> nizamra/short config >>>"
-MARKER_END="# <<< nizamra/short config >>>"
-BASHRC="$HOME/.bashrc"
-
-CONFIG_BLOCK=$(cat << 'EOF'
-# >>> nizamra/short config >>>
 # ============================================
 # Custom Definitions & Navigation
 # ============================================
@@ -22,11 +17,6 @@ alias gt='git'
 alias tf='terraform'
 alias k='kubectl'
 alias an='ansible'
-alias anp='ansible-playbook'
-alias ang='ansible-galaxy'
-alias anv='ansible-vault'
-alias anchk='ansible-playbook --check'
-alias ansyn='ansible-playbook --syntax-check'
 
 # ============================================
 # Kubectl Get Shortcuts
@@ -36,8 +26,8 @@ alias kgp='kubectl get pods'
 alias kgd='kubectl get deployments'
 alias kgs='kubectl get svc'
 alias kgn='kubectl get namespaces'
-alias kgc='kubectl get configmap'
-alias kgsc='kubectl get secret'
+alias kgc='kubectl get configmaps'
+alias kgsc='kubectl get secrets'
 alias kgall='kubectl get all'
 alias kgpw='kubectl get pods -o wide'
 alias ktop='kubectl top pods'
@@ -61,25 +51,28 @@ alias kdl='kubectl delete -f'
 alias kru='kubectl rollout undo'
 alias krh='kubectl rollout history'
 alias krs='kubectl rollout status'
-# <<< nizamra/short config >>>
-EOF
-)
 
-echo "-> Installing / Updating nizamra/short shortcuts..."
+alias kctx='kubectl config use-context'
+alias kns='kubectl config set-context --current --namespace'
 
-# Create .bashrc if it doesn't exist
-[ -f "$BASHRC" ] || touch "$BASHRC"
-
-# Remove old managed block if it exists (ensures idempotency without duplication)
-if grep -q "$MARKER_START" "$BASHRC"; then
-    # Use sed to safely strip out the old block
-    sed -i "/$MARKER_START/,/$MARKER_END/d" "$BASHRC"
-    echo "-> Cleaned up previous shortcut block."
-fi
-
-# Append the fresh block to ~/.bashrc
-echo "" >> "$BASHRC"
-echo "$CONFIG_BLOCK" >> "$BASHRC"
-
-echo "✅ Successfully updated $BASHRC!"
-echo "👉 Run 'source ~/.bashrc' to apply your new shortcuts immediately."
+# ---------------------------------------------------------------- ansible ---
+alias ap='ansible-playbook'
+alias apc='ansible-playbook --check'
+alias apd='ansible-playbook --diff'
+alias aps='ansible-playbook --syntax-check'
+alias ai='ansible-inventory'
+alias aig='ansible-inventory --graph'
+alias ag='ansible-galaxy'
+alias agi='ansible-galaxy install'
+alias agl='ansible-galaxy list'
+alias av='ansible-vault'
+alias ave='ansible-vault edit'
+alias avv='ansible-vault view'
+alias aven='ansible-vault encrypt'
+alias avd='ansible-vault decrypt'
+alias al='ansible-lint'
+alias ad='ansible-doc'
+alias adl='ansible-doc -l'
+alias ac='ansible-config'
+alias acd='ansible-config dump --only-changed'
+alias aping='ansible all -m ping -o'

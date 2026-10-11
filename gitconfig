@@ -1,36 +1,46 @@
+# ============================================================================
+#  nizamra/short — git config snippet
+#  Append to ~/.gitconfig.
+# ============================================================================
+
 [user]
 	email = nizam@bookly.cc
 	name = Nizam Jawabreh
+
 [alias]
-	com = commit
-	co = checkout
-	br = branch
-	l = log
-	l1 = log --oneline
-	s = status
-	st = s
-	pl = pull
-	ps = push
-	cp = cherry-pick
-	r = reset
-	d = diff
-	c = commit
-	ad = add .
+	# --- basics ---
+	c    = commit
+	co   = checkout
+	br   = branch
+	l    = log
+	l1   = log --oneline
+	s    = status
+	ad   = add .
+	d    = diff
+	r    = reset
+	lg   = log --oneline --graph --decorate
+
+	# --- sync ---
+	pl   = pull
+	ps   = push
+
+	# --- history ---
+	cp     = cherry-pick
+	pop    = reset HEAD^
 	copy = "! git format-patch eval `git log --oneline HEAD...release/4_5_0 | wc -l` HEAD"
-	ama = commit --amend -a --no-verify --no-edit
-	mk = "! git commit --amend -a --no-verify --no-edit && git push -f"
-	pop = git reset HEAD^
-	clear = "! git add .; git reset --hard"
-	cls = clear
-	squash = "!squash(){ for i in { 1...\"$1\" } do; git pop; git ama; done;}; squash"
+
+	ama    = commit --amend -a --no-verify --no-edit
+	mk     = "! git commit --amend -a --no-verify --no-edit && git push -f"
+	cls = "! git add .; git reset --hard"
+	squash = !f() { git reset --soft HEAD~$1 && git commit --amend --no-edit; }; f
+
 [core]
 	autocrlf = true
+
 [filter "lfs"]
-	smudge = git-lfs smudge -- %f
-	process = git-lfs filter-process
 	required = true
-	clean = git-lfs clean -- %f
+	clean    = git-lfs clean -- %f
+	smudge   = git-lfs smudge -- %f
+	process  = git-lfs filter-process
 [init]
-	defaultBranch = main
-[credential "https://github.com"]
-	helper =
+	defaultBranch = master
