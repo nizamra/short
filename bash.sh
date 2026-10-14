@@ -61,6 +61,7 @@ alias klf='kubectl logs -f'
 # ============================================
 # Apply & Delete
 # ============================================
+alias kc='kubectl create'
 alias ka='kubectl apply -f'
 alias kdl='kubectl delete -f'
 
@@ -96,4 +97,4 @@ alias ad='ansible-doc'
 alias adl='ansible-doc -l'
 alias ac='ansible-config'
 alias acd='ansible-config dump --only-changed'
-alias aping='ansible all -m ping -o'
+alias aping='ansible all -m ping'

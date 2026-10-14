@@ -23,6 +23,10 @@ after you close the terminal and can be run again safely.
 ### 🐧 Ubuntu / Linux (Bash)
 
 ```bash
+if ! command -v git >/dev/null 2>&1; then
+  sudo apt update && sudo apt install -y git
+fi
+
 if [ ! -d "$HOME/short/.git" ]; then
   git clone https://github.com/nizamra/short.git "$HOME/short"
 fi

@@ -31,6 +31,7 @@ function kctx { kubectl config use-context $args }
 function kns { kubectl config set-context --current --namespace=$args }
 
 # ----------------------------------------------------- apply / delete ---
+function kc { kubectl create $args }
 function ka   { kubectl apply -f $args }
 function kdl { kubectl delete -f $args }
 
