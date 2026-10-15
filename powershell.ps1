@@ -23,6 +23,7 @@ function kgpw  { kubectl get pods -o wide $args }
 
 # ------------------------------------------------- describe / logs ------
 function kd  { kubectl describe $args }
+function kdp { kubectl describe pods $args }
 function kl  { kubectl logs $args }
 function klf { kubectl logs -f $args }
 

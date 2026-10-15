@@ -55,6 +55,7 @@ alias kge='kubectl get events --sort-by=.lastTimestamp'
 # Kubectl Describe & Logs
 # ============================================
 alias kd='kubectl describe'
+alias kdp='kubectl describe pods'
 alias kl='kubectl logs'
 alias klf='kubectl logs -f'
 

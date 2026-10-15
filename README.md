@@ -20,6 +20,12 @@ The shortcut files must be loaded by your shell at startup. These steps clone th
 repository into `~/short` and add a startup entry once, so the setup persists
 after you close the terminal and can be run again safely.
 
+### How to get readme
+
+```Bash
+curl -sf https://raw.githubusercontent.com/nizamra/short/master/README.md
+```
+
 ### 🐧 Ubuntu / Linux (Bash)
 
 ```bash
