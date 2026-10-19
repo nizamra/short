@@ -23,7 +23,7 @@ after you close the terminal and can be run again safely.
 ### How to get readme
 
 ```Bash
-curl -sf https://raw.githubusercontent.com/nizamra/short/master/README.md
+curl -fsSL https://raw.githubusercontent.com/nizamra/short/master/README.md
 ```
 
 ### 🐧 Ubuntu / Linux (Bash)
@@ -47,6 +47,20 @@ point to paths from the original machine; edit `TEST_DIR` and `LAB_DIR` in
 `~/short/bash.sh` to match your machine before using them. For another shell,
 add the equivalent source command to that shell's startup file. If you use
 PowerShell on Linux, follow the PowerShell instructions below instead.
+
+#### Install without Git
+
+If you only want to use `curl`, append `bash.sh` directly to your `~/.bashrc`,
+then load the updated file:
+
+```bash
+curl -fsSL https://raw.githubusercontent.com/nizamra/short/master/bash.sh >> "$HOME/.bashrc"
+source "$HOME/.bashrc"
+```
+
+Run this once; each run appends another copy of the shortcuts. To update them
+later, remove the old appended block from `~/.bashrc` before running the command
+again.
 
 ### 🪟 Windows (PowerShell)
 

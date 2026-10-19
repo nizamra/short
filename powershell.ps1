@@ -26,6 +26,12 @@ function kd  { kubectl describe $args }
 function kdp { kubectl describe pods $args }
 function kl  { kubectl logs $args }
 function klf { kubectl logs -f $args }
+function kld {
+    param([string]$Pod, [string]$Namespace)
+
+    kubectl describe pod $Pod -n $Namespace | Select-String '^Events:' -Context 0,50
+    kubectl logs $Pod -n $Namespace
+}
 
 # ----------------------------------------------------- context / namespace ---
 function kctx { kubectl config use-context $args }

@@ -58,6 +58,12 @@ alias kd='kubectl describe'
 alias kdp='kubectl describe pods'
 alias kl='kubectl logs'
 alias klf='kubectl logs -f'
+kld() {
+  local pod="$1"
+  local ns="${2:+ -n $2}"
+  
+  kubectl describe pods "$pod" $ns | awk '/^Events:/ {p=1} p' && kubectl logs "$pod" $ns
+}
 
 # ============================================
 # Apply & Delete
