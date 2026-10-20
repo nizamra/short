@@ -48,7 +48,8 @@ alias kgno='kubectl get nodes'
 alias kgc='kubectl get configmaps'
 alias kgsc='kubectl get secrets'
 alias kga='kubectl get all'
-alias ktop='kubectl top pods'
+alias ktn='kubectl top nodes'
+alias ktp='kubectl top pods'
 alias kge='kubectl get events --sort-by=.lastTimestamp'
 
 # ============================================
@@ -79,7 +80,6 @@ alias kru='kubectl rollout undo'
 alias krh='kubectl rollout history'
 alias krs='kubectl rollout status'
 alias krr='kubectl rollout restart'
-alias ktopn='kubectl top nodes'
 
 alias kctx='kubectl config use-context'
 alias kns='kubectl config set-context --current --namespace'

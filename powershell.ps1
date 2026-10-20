@@ -16,8 +16,11 @@ function kgp   { kubectl get pods $args }
 function kgd   { kubectl get deployments $args }
 function kgs   { kubectl get svc $args }
 function kgn   { kubectl get namespaces $args }
+function kgno   { kubectl get nodes $args }
 function kgc   { kubectl get configmaps $args }
 function kgsc { kubectl get secrets $args }
+function ktn { kubectl top nodes $args }
+function ktp { kubectl top pods $args }
 function kgal { kubectl get all $args }
 function kgpw  { kubectl get pods -o wide $args }
 
